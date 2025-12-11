@@ -1,0 +1,146 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transport Company</title>
+    <link rel="stylesheet" href="{% static 'website/assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'website/assets/css/style.css' %}">
+</head>
+<body>
+
+<!-- JOIN US STARTS -->
+<section class="join-us rich-bg text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="herotext animated">
+                    <div class="lrline pb-3"><span>{{ join_us.subtitle }}</span></div>
+                    <h2>{{ join_us.title }}</h2>
+                    <h5 class="pt-2">{{ join_us.description }}</h5>
+                </div>
+                <ul class="pt-4">
+                    <li><a href="{{ join_us.button_link }}" class="btn btn-secondary">{{ join_us.button_text }}</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- JOIN US ENDS -->
+
+<!-- PORTFOLIO STARTS -->
+<section id="portfolio" class="portfolio pb-0">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2>Our Portfolio</h2>
+            </div>
+        </div>
+        <div class="row pt-5 pb-3">
+            {% for item in portfolio_items %}
+            <div class="col-12 col-md-3">
+                <figure class="item {{ item.category }}">
+                    <div class="picture">
+                        <img src="{{ item.image.url }}" alt="{{ item.name }}">
+                        <div class="text-overlay">
+                            <div class="category">{{ item.category }}</div>
+                            <h2><a href="{{ item.image.url }}">{{ item.name }}</a></h2>
+                        </div>
+                    </div>
+                </figure>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- PORTFOLIO ENDS -->
+
+<!-- TEAM STARTS -->
+<section class="team light-brown-bg mt-3" id="team">
+    <div class="container">
+        <div class="row text-center pb-5">
+            <div class="col-12">
+                <h2>Meet Our Team</h2>
+            </div>
+        </div>
+        <div class="row">
+            {% for member in team_members %}
+            <div class="col-12 col-md-4 text-center">
+                <div class="block">
+                    <img src="{{ member.photo.url }}" class="img-fluid" alt="{{ member.name }}">
+                    <h2>{{ member.name }}</h2>
+                    <h6>{{ member.role }}</h6>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- TEAM ENDS -->
+
+<!-- BLOG STARTS -->
+<section class="blog light-brown-bg" id="blog">
+    <div class="container">
+        <div class="row text-center pb-5">
+            <div class="col-12">
+                <h2>Latest News</h2>
+            </div>
+        </div>
+        <div class="row">
+            {% for post in blog_posts %}
+            <div class="col-12 col-md-4">
+                <div class="blog-post">
+                    <img src="{{ post.image.url }}" class="img-fluid" alt="{{ post.title }}">
+                    <h4>{{ post.title }}</h4>
+                    <p>{{ post.content|truncatewords:20 }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- BLOG ENDS -->
+
+<!-- TESTIMONIALS STARTS -->
+<section class="testimonials">
+    <div class="container">
+        <div class="row">
+            {% for t in testimonials %}
+            <div class="col-12 col-md-4 text-center">
+                <div class="testimonial">
+                    <img src="{{ t.photo.url }}" class="img-fluid" alt="{{ t.name }}">
+                    <h5>{{ t.name }}</h5>
+                    <p>{{ t.comment }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- TESTIMONIALS ENDS -->
+
+<!-- CLIENTS STARTS -->
+<section class="clients pt-5">
+    <div class="container text-center">
+        <div class="row">
+            {% for client in clients %}
+            <div class="col-6 col-md-3">
+                <img src="{{ client.logo.url }}" class="img-fluid" alt="{{ client.name }}">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- CLIENTS ENDS -->
+
+<!-- VIDEO STARTS -->
+<section class="video bg-img text-center">
+    <div class="container">
+        <h6><a class="popup-vimeo" href="{{ video_section.video_url }}"><i class="las la-play"></i></a></h6>
+    </div>
+</section>
+<!-- VIDEO ENDS -->
+
+</body>
+</html>

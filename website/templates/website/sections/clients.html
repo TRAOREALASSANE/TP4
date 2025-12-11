@@ -1,0 +1,39 @@
+{% load static %}
+
+<!-- CLIENTS STARTS -->
+<section class="clients pt-0">
+    <div class="container">
+        
+        <!-- Partie Titre -->
+        {% if award_section %}
+        <div class="row">
+            <div class="col-12 animated" data-animation="fadeInUp" data-animation-delay="100">
+                <div class="herotext text-center">
+                    <div class="lrline pb-3">
+                        <span>{{ award_section.subtitle }}</span>
+                    </div>
+                    <h2>{{ award_section.title }}</h2>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Partie Images -->
+        <div class="row text-center pt-5">
+            {% for logo in award_logos %}
+            <div class="col-6 col-md-3 animated" data-animation="fadeInUp" 
+                 data-animation-delay="{{ forloop.counter|add:1 }}00"> <!-- Génère 200, 300, 400... -->
+                
+                {% if logo.image %}
+                    <img src="{{ logo.image.url }}" class="img-fluid" alt="{{ logo.name }}">
+                {% endif %}
+                
+            </div>
+            {% empty %}
+                <p class="text-center">Aucun logo ajouté pour le moment.</p>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+<!-- /. CLIENTS ENDS -->

@@ -1,0 +1,80 @@
+{% load static %}
+
+<!-- CONTACT US STARTS -->
+<section class="contact-us" id="contact">
+    <div class="container">
+        
+        <!-- Message de succès après envoi -->
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success text-center">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="row">
+            <!-- COLONNE GAUCHE : INFOS -->
+            <div class="col-12 col-lg-6">
+                <div class="herotext pb-4 animated" data-animation="fadeInUp" data-animation-delay="100">
+                    <div class="rightline pb-3"><span>{{ contact_info.sub_title|default:"Get In Touch" }}</span></div>
+                    <h2>{{ contact_info.main_title|default:"Talk or Meet with Us" }}</h2>
+                </div>
+                
+                <!-- Adresse -->
+                <address class="clearfix d-flex align-items-center pb-2 animated" data-animation="fadeInUp" data-animation-delay="300">
+                    <div class="icon"><i class="las la-map-marker"></i></div>
+                    <div class="detail">
+                        <div class="heading">{{ contact_info.address_title|default:"Get Us Here" }}</div>
+                        {{ contact_info.address|linebreaksbr }}
+                    </div>
+                </address>
+                
+                <!-- Téléphone -->
+                <address class="clearfix d-flex align-items-center pb-2 animated" data-animation="fadeInUp" data-animation-delay="500">
+                    <div class="icon"><i class="las la-phone"></i></div>
+                    <div class="detail">
+                        <div class="heading">{{ contact_info.phone_title|default:"Call Us" }}</div>
+                        {{ contact_info.phone }}
+                    </div>
+                </address>
+                
+                <!-- Email -->
+                <address class="clearfix d-flex align-items-center animated" data-animation="fadeInUp" data-animation-delay="700">
+                    <div class="icon"><i class="las la-envelope-open"></i></div>
+                    <div class="detail">
+                        <div class="heading">{{ contact_info.email_title|default:"Write Us" }}</div>
+                        <a href="mailto:{{ contact_info.email }}">{{ contact_info.email }}</a>
+                    </div>
+                </address>
+            </div>
+
+            <!-- COLONNE DROITE : FORMULAIRE -->
+            <div class="col-12 col-lg-6 pt-5 pt-lg-0">
+                <div class="herotext pb-4 animated" data-animation="fadeInUp" data-animation-delay="300">
+                    <div class="rightline pb-3"><span>{{ contact_info.form_sub_title|default:"Estimate Project" }}</span></div>
+                    <h2>{{ contact_info.form_main_title|default:"Let Us Know Here" }}</h2>
+                </div>
+                
+                <!-- Le formulaire pointe vers la vue Django (method="POST") -->
+                <form method="post" class="animated" data-animation="fadeInUp" data-animation-delay="500">
+                    {% csrf_token %} <!-- TRÈS IMPORTANT : Sécurité Django -->
+                    
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="name" placeholder="Enter your name *" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" name="email" placeholder="Enter your email *" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="website" placeholder="Enter your website">
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" name="comment" placeholder="Enter your message *" rows="3" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary mt-3">SEND MESSAGE</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /. CONTACT US ENDS -->

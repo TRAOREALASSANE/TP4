@@ -1,0 +1,23 @@
+<!-- INNER BANNER STARTS -->
+<div class="inner-banner-style banner-img-03" id="top" 
+     style="{% if banner and banner.image %}background-image: url('{{ banner.image.url }}'); background-size: cover; background-position: center;{% endif %}">
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="info text-center animated" data-animation="fadeInUp" data-animation-delay="200">
+                    
+                    <div class="lrline pb-3">
+                        <!-- Affiche le sous-titre de la BDD ou celui par défaut -->
+                        <span>{{ banner.subtitle|default:"faster deliveries" }}</span>
+                    </div>
+                    
+                    <!-- Affiche le titre de la BDD ou celui par défaut -->
+                    <h2>{{ banner.title|default:"Our Gallery" }}</h2>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /. INNER BANNER ENDS -->

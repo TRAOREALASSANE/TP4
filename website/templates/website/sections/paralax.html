@@ -1,0 +1,46 @@
+<!-- FEATURES STARTS ========================================================================= -->
+{% if why_choose_us %}
+<section class="CTA-01 parallax-01" 
+    {% if why_choose_us.background_image %}
+    style="background-image: url('{{ why_choose_us.background_image.url }}');"
+    {% endif %}>
+    
+    <div class="container ps-md-0">
+        <div class="row">
+            <div class="col-12 col-lg-6 offset-lg-6">
+                <div class="block">
+                    <div class="herotext animated" data-animation="fadeInUp" data-animation-delay="200">
+                        
+                        <!-- Petit titre -->
+                        <div class="rightline pb-3"><span>{{ why_choose_us.tagline }}</span></div>
+                        
+                        <!-- Grand titre -->
+                        <h2>{{ why_choose_us.title }}</h2>
+                        
+                        <!-- Description -->
+                        <div class="description pt-2">{{ why_choose_us.description }}</div>
+                        
+                        <div class="callus pt-5">
+                            <div class="info">
+                                <div class="icon"><i class="las la-phone"></i></div>
+                                <div class="number">
+                                    <!-- Titre Appel -->
+                                    <h4>{{ why_choose_us.call_title }}</h4>
+                                    
+                                    <!-- Numéro de téléphone -->
+                                    <div>
+                                        <a href="tel:{{ why_choose_us.phone_number }}">
+                                            {{ why_choose_us.phone_number }}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+<!-- /.. FEATURES ENDS ========================================================================= -->

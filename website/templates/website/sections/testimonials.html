@@ -1,0 +1,18 @@
+<section class="testimonial-area">
+    <!-- ... structure slider ... -->
+    
+    {% for temoin in testimonials %}
+    <div class="single-testimonial">
+        <div class="text">
+            <p>{{ temoin.text }}</p>
+        </div>
+        <div class="author">
+            <img src="{{ temoin.photo.url }}" alt="">
+            <h4>{{ temoin.name }}</h4> <!-- C'est ici que "Dao" s'affichera -->
+            <span>{{ temoin.designation }}</span>
+        </div>
+    </div>
+    {% endfor %}
+
+    <!-- ... -->
+</section>

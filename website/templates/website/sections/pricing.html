@@ -1,0 +1,47 @@
+<section class="pricing-area pt-100 pb-70">
+    <div class="container">
+        <div class="section-title">
+            <span>Nos Tarifs</span>
+            <h2>Choisissez le plan qui vous convient</h2>
+        </div>
+
+        <div class="row">
+            <!-- DÉBUT DE LA BOUCLE DJANGO -->
+            <!-- On parcourt la liste 'plans' envoyée par la vue -->
+            {% for plan in plans %}
+            
+            <div class="col-lg-4 col-md-6">
+                <!-- On ajoute la classe 'active' si le plan est populaire -->
+                <div class="single-pricing-table {% if plan.is_popular %}active{% endif %}">
+                    <div class="pricing-header">
+                        <!-- Titre dynamique -->
+                        <h3>{{ plan.title }}</h3>
+                    </div>
+                    
+                    <div class="price">
+                        <!-- Prix dynamique -->
+                        <span>{{ plan.currency }}</span>{{ plan.price }} 
+                        <sub>{{ plan.period }}</sub>
+                    </div>
+                    
+                    <ul class="features-list">
+                        <!-- Si tu as des fonctionnalités reliées -->
+                        {% for feature in plan.features.all %}
+                            <li><i class="las la-check"></i> {{ feature.text }}</li>
+                        {% endfor %}
+                    </ul>
+                    
+                    <div class="btn-box">
+                        <a href="#" class="default-btn">Choisir ce plan</a>
+                    </div>
+                </div>
+            </div>
+
+            {% empty %}
+            <!-- Ce message s'affiche si ta base de données est vide -->
+            <p>Aucun plan tarifaire disponible pour le moment.</p>
+            {% endfor %}
+            <!-- FIN DE LA BOUCLE -->
+        </div>
+    </div>
+</section>

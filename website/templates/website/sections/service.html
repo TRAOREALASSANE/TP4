@@ -1,0 +1,47 @@
+{% load static %}
+
+<!-- SERVICES STARTS ========================================================================= -->
+<section class="home-services pt-4 pb-4" id="services">
+    <div class="container-fluid">
+        <div class="row pb-5">
+            <div class="col-12">
+                <div class="herotext text-center animated" data-animation="fadeInUp" data-animation-delay="100" >
+                    <div class="lrline pb-3"><span>START SHIPPING WITH US</span></div>
+                    <h2>We are covering all <br>logistics solutions for you</h2>
+                    <h5 class="pt-2">Whatever item needs to be delivered or shipped, we're capable to do that!</h5>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Le conteneur du carousel -->
+        <div class="services-carousel animated" data-animation="fadeInUp" data-animation-delay="300">
+            
+            {% for service in services %}
+                <div class="block">
+                    <div class="info">
+                        <h2>{{ service.title }}</h2>
+                        
+                        <!-- On coupe la description si elle est trop longue (optionnel) -->
+                        <div class="description">{{ service.description|truncatewords:10 }}</div>
+                        
+                        <!-- Lien vers une page de détail dynamique (à créer plus tard) -->
+                        <!-- Si vous n'avez pas encore de vue détail, gardez href="#" -->
+                        <a href="#">Read More</a>
+                    </div>
+                    
+                    <div class="picture">
+                        <!-- Vérification si l'image existe pour éviter les erreurs -->
+                        {% if service.image %}
+                            <img src="{{ service.image.url }}" class="img-fluid pic" alt="{{ service.title }}">
+                        {% else %}
+                            <!-- Image par défaut si aucune image n'est uploadée -->
+                            <img src="{% static 'website/assets/imgs/default-service.jpg' %}" class="img-fluid pic" alt="Default">
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+</section>
+<!-- SERVICES ENDS ========================================================================= -->

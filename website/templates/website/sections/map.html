@@ -1,0 +1,21 @@
+<!-- MAPS STARTS ========================================================================= -->
+{% if map_data and map_data.is_active %}
+<section class="map p-0">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 p-0 animated" data-animation="fadeInUp" data-animation-delay="100">
+                
+                <!-- On utilise l'URL et la hauteur venant de la base de données -->
+                <iframe 
+                    src="{{ map_data.map_url }}" 
+                    height="{{ map_data.height }}" 
+                    allowfullscreen="" 
+                    style="border:0; width:100%;">
+                </iframe>
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+<!-- /.. MAPS ENDS ========================================================================= -->

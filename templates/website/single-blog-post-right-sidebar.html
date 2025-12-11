@@ -1,0 +1,12 @@
+{% extends 'website/base.html' %}
+
+    {% block 'contenu_principal' %}
+        {% include 'website/sections/banner_SPR.html' %}
+        {% include 'website/sections/single_bloc_SPR.html' %}
+        {% include 'website/sections/to_top.html' %}
+    {% endblock %}
+        
+
+{% block 'script' %}
+                {% include 'website/partials/script_index.html'  %}
+        {% endblock %}

@@ -1,0 +1,21 @@
+{% load static %}
+
+<!-- INNER BANNER STARTS
+    ========================================================================= -->
+<div class="inner-banner-style {{ banner.background_class|default:'banner-img-01' }}" id="top" 
+     {% if banner.banner_image %}style="background-image: url('{{ banner.banner_image.url }}');"{% endif %}>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="info text-center animated" data-animation="fadeInUp" data-animation-delay="200">
+                    <div class="lrline pb-3">
+                        <span>{{ banner.subtitle|default:"News & Events" }}</span>
+                    </div>
+                    <h2>{{ banner.title|default:"Blog" }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /. INNER BANNER ENDS
+    ========================================================================= -->

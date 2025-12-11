@@ -1,0 +1,48 @@
+{% load static %}
+
+<!-- ABOUT US STARTS
+    ========================================================================= -->
+<section class="home-intro" id="about">
+    <div class="container">
+        <div class="row align-items-center pb-5">
+            <div class="col-12 col-lg-5 pt-4 pt-lg-0 animated" data-animation="fadeInUp" data-animation-delay="350">
+                {% if about_section.image %}
+                    <img src="{{ about_section.image.url }}" class="img-fluid pic" alt="{{ about_section.main_title }}">
+                {% else %}
+                    <img src="{% static 'website/assets/imgs/about/pic1.png' %}" class="img-fluid pic" alt="">
+                {% endif %}
+            </div>
+            <div class="col-12 col-lg-6 offset-lg-1">
+                <div class="herotext animated" data-animation="fadeInUp" data-animation-delay="100">
+                    <div class="rightline pb-3"><span>{{ about_section.section_title }}</span></div>
+                    <h2>{{ about_section.main_title }}</h2>
+                    <h5 class="pt-2">
+                        {{ about_section.description|linebreaks }}
+                        <br><strong>{{ about_section.author_name }}</strong><br>{{ about_section.author_title }}
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-5">
+            {% for feature in features %}
+            <div class="col-12 col-lg-4">
+                <div class="service-block animated" data-animation="fadeInUp" data-animation-delay="{{ forloop.counter|add:1|stringformat:'d'|add:'00' }}">
+                    <div class="pt-1 pb-5">
+                        <div class="info">
+                            <div class="icon">
+                                <img src="{{ feature.icon.url }}" alt="{{ feature.title }}">
+                            </div>
+                            <div class="text">
+                                <h4>{{ feature.title }}</h4>
+                                <div>{{ feature.subtitle }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- /. ABOUT US ENDS
+    ========================================================================= -->

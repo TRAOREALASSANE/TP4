@@ -1,0 +1,29 @@
+{% load static %}
+
+<section class="join-us rich-bg text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+                <div class="herotext animated" data-animation="fadeInUp" data-animation-delay="100">
+                    <div class="lrline pb-3"><span>{{ join.tagline }}</span></div>
+
+                    <h2>{{ join.title }}</h2>
+                    <h5 class="pt-2">{{ join.subtitle }}</h5>
+                </div>
+
+                <ul class="pt-4">
+                    <li>
+                        <a href="{{ join.button_link }}"
+                           class="btn btn-secondary animated"
+                           data-animation="fadeInUp"
+                           data-animation-delay="200">
+                           {{ join.button_text }}
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</section>

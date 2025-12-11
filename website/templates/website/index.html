@@ -1,0 +1,14 @@
+{% extends 'website/base.html' %}
+
+    {% block 'contenu_principal' %}
+        {% include 'website/sections/slider.html' %}
+        {% include 'website/sections/about.html' with about=about %}
+        {% include 'website/sections/service.html' %}
+        {% include 'website/sections/feature.html' %}
+        {% include 'website/sections/paralax.html' %}
+        {% include 'website/sections/les_autres_section.html' %}
+    {% endblock %}
+
+{% block 'script' %}
+            {% include 'website/partials/script.html'  %}
+    {% endblock %}

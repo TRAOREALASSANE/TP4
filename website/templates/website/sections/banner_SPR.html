@@ -1,0 +1,42 @@
+<!-- INNER BANNER STARTS -->
+<div class="inner-banner-style blog-post-banner" id="top"
+     style="{% if header and header.image %}background-image: url('{{ header.image.url }}'); background-size: cover; background-position: center;{% endif %}">
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="info text-center">
+                    
+                    <!-- Catégorie (ex: Air Freight) -->
+                    <div class="lrline pb-3">
+                        <span>{{ header.category|default:"Air Freight" }}</span>
+                    </div>
+                    
+                    <!-- Titre Principal -->
+                    <h2>
+                        {{ header.title|default:"Titre de l'article ici" }}
+                    </h2>
+                    
+                    <!-- Métadonnées -->
+                    <ul class="meta">
+                        <li>
+                            <a href="#"><i class="las la-user-alt"></i> {{ header.author_name|default:"John" }}</a>
+                        </li>
+                        <li>
+                            <!-- Date formatée -->
+                            <a href="#"><i class="las la-calendar"></i> {{ header.publish_date|date:"d M, Y" }}</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="lar la-comment"></i> {{ header.comments_count|default:"0" }}</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="lar la-eye"></i> {{ header.views_count|default:"0" }}</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /. INNER BANNER ENDS -->

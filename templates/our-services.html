@@ -1,0 +1,16 @@
+{% extends 'website/base.html' %}
+
+    {% block 'contenu_principal' %}
+          {% include 'website/sections/banner_our_serv.html' %}
+          {% include 'website/sections/about_O.html' %}
+          {% include 'website/sections/service.html' %}
+          {% include 'website/sections/feature.html' %}
+          {% include 'website/sections/testimonials.html' %}
+          {% include 'website/sections/clients.html' %}
+          {% include 'website/sections/to_top.html' %}
+
+    {% endblock %}        
+       
+{% block 'script' %}
+                {% include 'website/partials/script_index.html'  %}
+        {% endblock %}

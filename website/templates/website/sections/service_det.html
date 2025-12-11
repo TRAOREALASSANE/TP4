@@ -1,0 +1,53 @@
+<!-- PRICING STARTS -->
+<section class="pricing" id="pricing">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="herotext text-center animated" data-animation="fadeInUp" data-animation-delay="100">
+                    <div class="lrline pb-3"><span>Cheap Pricing</span></div>
+                    <h2>Explore our membership pricing plans</h2>
+                    <h5 class="pt-2">Whatever item needs to be delivered or shipped, we're capable to do that!</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="row pt-5 g-0 g-lg-5">
+            {% for plan in plans %}
+                <div class="col col-md-4 text-start">
+                    <!-- 
+                       Logic dynamique :
+                       1. Si plan.is_popular est True, on ajoute la classe "best".
+                       2. Calcul du délai : On commence à 300 et on ajoute 200 à chaque tour.
+                          (forloop.counter0 * 200) + 300 
+                          Note: pour simplifier en template pur, on peut juste utiliser un délai fixe ou une astuce widthratio, 
+                          mais ici je mets une logique simple basée sur le compteur.
+                    -->
+                    <div class="block {% if plan.is_popular %}best{% endif %} animated" 
+                         data-animation="fadeInUp" 
+                         data-animation-delay="{% widthratio forloop.counter 1 200 %}"> 
+                        
+                        <div class="herotext p-4 pb-2">
+                            <h4>{{ plan.name }}</h4>
+                            <h2>${{ plan.price }}<span>{{ plan.currency }}</span></h2>
+                            <p>All plans include a 30 day trial!</p>
+                        </div>
+                        
+                        <ul class="pt-4">
+                            <!-- On boucle sur les features liées à ce plan -->
+                            {% for feature in plan.features.all %}
+                                <li><i class="lar la-check-circle"></i> {{ feature.text }}</li>
+                            {% endfor %}
+                            
+                            <!-- Si vous voulez ajouter des lignes vides pour aligner la hauteur, 
+                                 c'est possible avec du CSS ou une logique supplémentaire, 
+                                 mais généralement pas nécessaire avec Flexbox -->
+                        </ul>
+                        
+                        <div><a href="#" class="btn btn-primary w-100 mt-3">CHOOSE PLAN</a></div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- PRICING ENDS -->
